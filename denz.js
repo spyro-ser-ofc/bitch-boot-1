@@ -52,7 +52,6 @@ const googleImage = require('g-i-s')
 const toMs = require('ms')
 const fetch = require('node-fetch')
 const imgbb = require('imgbb-uploader')
-const brainlyv2 = require('brainly-scraper-v2')
 const Math_js = require('mathjs')
 const { EmojiAPI } = require("emoji-api")
 const emoji = new EmojiAPI()
@@ -906,8 +905,7 @@ return reply(parse)
 				reply('_Jangan Toxic!_')
 				}
 				if (!isGroup && !isCmd && !command && !mek.key.fromMe && autorespon) {
-numd = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
-	simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=${numd.data.country_code}`)
+simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=ID`)
                      sami = simi.success
                         denz.sendMessage(from, `_${sami}_`, text, {thumbnail: ofrply, sendEphemeral: true, quoted:mek, contextInfo : {forwardingScore: 508, isForwarded: true}})
                       }
@@ -988,7 +986,7 @@ reply('http://youtube.com/dcodedenpa')
         stod = `${sender}`
        stst = await denz.getStatus(`${sender.split('@')[0]}@c.us`)
 				stst = stst.status == 401 ? '' : stst.status
-			num = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
+			num = await fetchJson(`https://numlookupapi.com/api/validate/${senderNumber}`, {method: 'get'})
        menu = `❏「 \`\`\`${NamaBot}\`\`\` 」
 
 ╾ _Creator : @${dtod.split('@')[0]}_
@@ -1011,8 +1009,8 @@ reply('http://youtube.com/dcodedenpa')
 ╾ _Nama : ${pushname}_
 ╾ _Bio : ${stst}_
 ╾ _Nomor : @${stod.split('@')[0]}_
-╾ _Info Nomor : ${num.data.country_code} - ${num.data.carrier.type} - ${num.data.carrier.name}_`
-sendButDocument(from, `${menu}`, "*_© Dcode Denpa_*", fs.readFileSync('./sampah/denpa'), {mimetype:Mimetype.pdf, thumbnail:fs.readFileSync('./media/image/banner.jpg'), filename:`${jmn} - ${week} - ${calender}`}, [{buttonId:`command`,buttonText:{displayText:'LIST MENU'},type:1},{buttonId:`owner`,buttonText:{displayText:'DEVELOPER'},type:1},{buttonId:`script`,buttonText:{displayText:'SOURCE CODE'},type:1}], {quoted:fmen, contextInfo: { mentionedJid: [dtod,otod,stod], forwardingScore: 508, isForwarded: true, externalAdReply:{title:`${tampilUcapan} ${pushname}`,body:`*click here to play music`,mediaType:"2",thumbnail:ofrply,mediaUrl:`https://youtu.be/uQiF1yOnzDg`}}})
+╾ _Info Nomor : ${num.line_type} - ${num.country_name} - ${num.carrier}_`
+sendButDocument(from, `${menu}`, "*_© Dcode Denpa_*", fs.readFileSync('./sampah/Denpa'), {mimetype:Mimetype.pdf, thumbnail:fs.readFileSync('./media/image/banner.jpg'), filename:`${jmn} - ${week} - ${calender}`}, [{buttonId:`command`,buttonText:{displayText:'LIST MENU'},type:1},{buttonId:`owner`,buttonText:{displayText:'DEVELOPER'},type:1},{buttonId:`script`,buttonText:{displayText:'SOURCE CODE'},type:1}], {quoted:fmen, contextInfo: { mentionedJid: [dtod,otod,stod], forwardingScore: 508, isForwarded: true, externalAdReply:{title:`${tampilUcapan} ${pushname}`,body:`*click here to play music`,mediaType:"2",thumbnail:ofrply,mediaUrl:`https://youtu.be/uQiF1yOnzDg`}}})
 break
 case 'command':
  stod = `${sender}`
@@ -1146,7 +1144,6 @@ menu = `❏ 「 \`\`\`MENU DOWNLOAD\`\`\` 」
 ├ ${prefix}google [ _search_ ]
 ├ ${prefix}gimage [ _search_ ]
 ├ ${prefix}wiki [ _search_ ]
-├ ${prefix}brainly [ _search_ ]
 ├ ${prefix}mediafire [ _link_ ]
 ├ ${prefix}ytsearch [ _judul_ ]
 ├ ${prefix}ytmp4 [ _link yt_ ]
@@ -1261,16 +1258,6 @@ menu = `❏ 「 \`\`\`MENU OTHER\`\`\` 」
 └ ${prefix}detikvideo [ _reply video caption angka_ ]`
 katalog(menu)
 break
-case 'brainly':
-                if (!c) return reply(`Kirim perintah: ${prefix}brainly Soal`)
-                brainlyv2(c, 5, "id").then(res => {
-                    let resultbrainlyv2 = `\`\`\`「 BRAINLY-SEARCH 」\`\`\`\n\n`
-                    for (let x = 0; x < res.data.length; x++) {
-                        resultbrainlyv2 += `• *Soal:* ${res.data[x].pertanyaan}\n• *Jawaban:* ${res.data[x].jawaban[0].text.replace('Jawaban:', '').trim()}\n\n`
-                    }
-                    reply(resultbrainlyv2.trim())
-                    })
-                break
 case 'jadibot':
 client.version = [2, 2119, 6]
 client.browserDescription = ['Dcode Denpa','Desktop','3.0']
