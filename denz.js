@@ -907,7 +907,7 @@ return reply(parse)
 				if (!isGroup && !isCmd && !command && !mek.key.fromMe && autorespon) {
 simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=ID`)
                      sami = simi.success
-                        denz.sendMessage(from, `_${sami}_`, text, {thumbnail: ofrply, sendEphemeral: true, quoted:mek, contextInfo : {forwardingScore: 508, isForwarded: true}})
+                        denz.sendMessage(from, `${sami}`, text, {thumbnail: ofrply, sendEphemeral: true, quoted:mek})
                       }
 if (autoread) {
 denz.chatRead(from)
@@ -1546,9 +1546,15 @@ case 'fetch':
        if (args.length < 1) return reply(`Penggunaan ${prefix}autorespon on/off`)
            if (c === 'on'){
               autorespon = true
+              multi = true
+              allpref = false
+              nopref = false
                     reply(`Berhasil mengaktifkan autorespon`)
                 } else if (c === 'off'){
                     autorespon = false
+                    multi = false
+              allpref = true
+              nopref = false
                     reply(`Berhasil menonaktifkan autorespon`)
                 } else {
                     reply(mess.error.api)
