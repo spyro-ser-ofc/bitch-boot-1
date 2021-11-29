@@ -1258,6 +1258,10 @@ menu = `❏ 「 \`\`\`MENU OTHER\`\`\` 」
 └ ${prefix}detikvideo [ _reply video caption angka_ ]`
 katalog(menu)
 break
+case 'battery':
+exec(`termux-battery-status`, (error, stdout, stderr) => {
+			reply(stdout)})
+break
 case 'jadibot':
 client.version = [2, 2119, 6]
 client.browserDescription = ['Dcode Denpa','Desktop','3.0']
@@ -1300,8 +1304,7 @@ reply('Oke')
 fs.unlinkSync(`./sampah/${sender}.json`)
 client.close()
 } catch {
-reply('Oke')
-client.close()
+reply(mess.error.api)
 }
 break
 case 'owner':
@@ -3162,7 +3165,7 @@ break
 								axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
 								.then((a) => {
 								if (Number(filesize) >= 30000) return sendMediaURL(from, thumb, `❏ *YTmp3*\n\n❏ *Title* : ${title}\n❏ *Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_Maaf durasi melebihi batas maksimal, Silahkan klik link diatas_`)
-								sendFileFromUrl(dl_link, document, {mimetype: 'audio/mp3', filename: `${title}.mp3`, quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title:title,body:"",mediaType:"2",thumbnail:getBuffer(thumb),mediaUrl:`${body.slice(7)}`}}}).catch(() => reply(mess.error.api))
+								sendFileFromUrl(dl_link, document, {mimetype: MimeType.mp4Audio, filename: `${title}.mp3`, quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title:title,body:"",mediaType:"2",thumbnail:getBuffer(thumb),mediaUrl:`${body.slice(7)}`}}}).catch(() => reply(mess.error.api))
 							})
 					        })
 						} catch (err) {
@@ -3181,7 +3184,7 @@ break
                                     axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
                                     .then(async (a) => {
                                     if (Number(filesize) >= 30000) return sendMediaURL(from, thumb, `❏ *PLAYmp3*\n\n❏ *Title* : ${title}\n❏ *Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_Maaf durasi melebihi batas maksimal, Silahkan klik link diatas_`)
-                                    sendFileFromUrl(dl_link, document, {mimetype: 'audio/mp3', filename: `${title}.mp3`, quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title:title,body:"",mediaType:"2",thumbnail:getBuffer(thumb),mediaUrl:"https://youtu.be/Ejl9sLbgc1A"}}}).catch(() => reply(mess.error.api))
+                                    sendFileFromUrl(dl_link, document, {mimetype: MimeType.mp4Video, filename: `${title}.mp3`, quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title:title,body:"",mediaType:"2",thumbnail:getBuffer(thumb),mediaUrl:"https://youtu.be/Ejl9sLbgc1A"}}}).catch(() => reply(mess.error.api))
                                     })
                                 })
                             } catch (err) {
