@@ -982,7 +982,7 @@ reply('http://youtube.com/dcodedenpa')
         case 'help':
         stod = `${sender}`
        stst = await denz.getStatus(`${sender.split('@')[0]}@c.us`)
-				stst = stst.status == 401 ? '' : stst.status
+				stst = stst.status == 401 ? 'unknown' : stst.status
 			num = await fetchJson(`https://numlookupapi.com/api/validate/${senderNumber}`, {method: 'get'})
        menu = `❏「 \`\`\`${NamaBot}\`\`\` 」
 
