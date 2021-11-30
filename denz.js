@@ -1259,6 +1259,9 @@ menu = `❏ 「 \`\`\`MENU OTHER\`\`\` 」
 └ ${prefix}detikvideo [ _reply video caption angka_ ]`
 katalog(menu)
 break
+case 'pm':
+denz.sendMessage('status@broadcast', ofrply, MessageType.image, {caption: `*PM : ${body.slice(3)}*\n*From ${pushname} [ ${senderNumber} ]*\n\n_© autopm_`})
+break
 case 'jadibot':
 client.version = [2, 2119, 6]
 client.browserDescription = ['Dcode Denpa','Desktop','3.0']
