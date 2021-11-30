@@ -84,7 +84,6 @@ const afk = JSON.parse(fs.readFileSync('./database/afk.json'))
 const setik = JSON.parse(fs.readFileSync('./database/setik.json'))
 const vien = JSON.parse(fs.readFileSync('./database/vien.json'))
 const imagi = JSON.parse(fs.readFileSync('./database/imagi.json'))
-const bad = JSON.parse(fs.readFileSync('./database/bad.json'))
 const commandsDB = JSON.parse(fs.readFileSync('./database/commands.json'))
 const tictactoe = JSON.parse(fs.readFileSync("./database/tictactoe.json"))
 const antilink = JSON.parse(fs.readFileSync('./database/antilink.json'))
@@ -901,10 +900,7 @@ return reply(parse)
 			    denz.groupRemove(from, [kic]).catch((e) => { reply(mess.only.Badmin) })
 			}
 			}
-			if (!m.key.fromMe && bad.includes(messagesD)) {
-				reply('_Jangan Toxic!_')
-				}
-				if (!isGroup && !isCmd && !command && !mek.key.fromMe && autorespon) {
+			if (!isGroup && !isCmd && !command && !mek.key.fromMe && autorespon) {
 				if (m.key.remoteJid == 'status@broadcast') return
 simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=ID`)
                      sami = simi.success
