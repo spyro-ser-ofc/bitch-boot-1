@@ -1258,10 +1258,6 @@ menu = `❏ 「 \`\`\`MENU OTHER\`\`\` 」
 └ ${prefix}detikvideo [ _reply video caption angka_ ]`
 katalog(menu)
 break
-case 'battery':
-exec(`termux-battery-status`, (error, stdout, stderr) => {
-			reply(stdout)})
-break
 case 'jadibot':
 client.version = [2, 2119, 6]
 client.browserDescription = ['Dcode Denpa','Desktop','3.0']
