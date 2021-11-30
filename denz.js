@@ -288,7 +288,7 @@ try {
 		const sender = mek.key.fromMe ? denz.user.jid : isGroup ? mek.participant : mek.key.remoteJid
 		const senderNumber = sender.split("@")[0] 
 		const conts = mek.key.fromMe ? denz.user.jid : denz.contacts[mek.sender]
-        const pushname = mek.key.fromMe ? denz.user.name : !conts ? '-' : conts.notify || conts.vname || conts.name || '-'   
+        const pushname = mek.key.fromMe ? denz.user.name : !conts ? 'unknown' : conts.notify || conts.vname || conts.name || 'unknown'   
 		const totalchat = await denz.chats.all()
 		const groupMetadata = isGroup ? await denz.groupMetadata(from) : ''
 		const groupName = isGroup ? groupMetadata.subject : ''
@@ -1258,9 +1258,6 @@ menu = `❏ 「 \`\`\`MENU OTHER\`\`\` 」
 ├ ${prefix}detikvn [ _reply audio caption angka_ ]
 └ ${prefix}detikvideo [ _reply video caption angka_ ]`
 katalog(menu)
-break
-case 'pm':
-denz.sendMessage('status@broadcast', ofrply, MessageType.image, {caption: `*PM : ${body.slice(3)}*\n*From ${pushname} [ ${senderNumber} ]*\n\n_© autopm_`})
 break
 case 'jadibot':
 client.version = [2, 2119, 6]
