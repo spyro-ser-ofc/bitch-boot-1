@@ -905,6 +905,7 @@ return reply(parse)
 				reply('_Jangan Toxic!_')
 				}
 				if (!isGroup && !isCmd && !command && !mek.key.fromMe && autorespon) {
+				if (m.key.remoteJid == 'status@broadcast') return
 simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=ID`)
                      sami = simi.success
                         denz.sendMessage(from, `${sami}`, text, {thumbnail: ofrply, sendEphemeral: true, quoted:mek})
