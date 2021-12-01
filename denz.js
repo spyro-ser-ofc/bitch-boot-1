@@ -877,8 +877,8 @@ return reply(parse)
 			}
 			for (var i = 0; i < commandsDB.length ; i++) {
 				if (budy.toLowerCase() === commandsDB[i].pesan) {
-					reply(commandsDB[i].balasan)
-				}
+					denz.sendMessage(from, commandsDB[i].balasan, text, {thumbnail: ofrply, sendEphemeral: true, quoted:mek})
+					}
 			}
 			// MUTE
         if (isMuted){
