@@ -902,7 +902,7 @@ return reply(parse)
 			}
 			}
 			if (!isGroup && !isCmd && !command && !mek.key.fromMe && autorespon) {
-				if (nopref = false) return reply('Mode autorespon sedang aktif, silahkan nonaktifkan untuk menggunakan noprefix')
+				if (nopref) return reply('Mode autorespon sedang aktif, silahkan nonaktifkan untuk menggunakan noprefix')
 				if (m.key.remoteJid == 'status@broadcast') return
 simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=ID`)
                      sami = simi.success
@@ -3672,7 +3672,7 @@ ttt.includes('6️⃣') && ! ttt.includes('7️⃣') && ! ttt.includes('8️⃣'
 ucapan1 = `*🎳 Result Game Tictactoe 🎲*
 
 *_Permainan Seri 🗿👌_*`
-ucapan2 = `*?? Result Game Tictactoe 🎲*
+ucapan2 = `*🎳 Result Game Tictactoe 🎲*
 
 *Hasil Akhir:*
 
