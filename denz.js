@@ -902,7 +902,6 @@ return reply(parse)
 			}
 			}
 			if (!isGroup && !isCmd && !command && !mek.key.fromMe && autorespon) {
-				if (budo.startsWith(prefix + command)) return reply('Mode autorespon sedang aktif, silahkan nonaktifkan untuk menggunakan noprefix')
 				if (m.key.remoteJid == 'status@broadcast') return
 simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=ID`)
                      sami = simi.success
