@@ -3671,7 +3671,7 @@ ttt.includes('5️⃣') && !
 ttt.includes('6️⃣') && ! ttt.includes('7️⃣') && ! ttt.includes('8️⃣') && ! ttt.includes('9️⃣')){
 ucapan1 = `*🎳 Result Game Tictactoe 🎲*
 
-*_Permainan Seri 🗿👌_*`
+*_Permainan Seri 🗿??_*`
 ucapan2 = `*🎳 Result Game Tictactoe 🎲*
 
 *Hasil Akhir:*
