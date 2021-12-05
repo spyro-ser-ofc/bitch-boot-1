@@ -50,6 +50,7 @@ const translate = require('@vitalets/google-translate-api')
 const ggs = require('google-it')
 const googleImage = require('g-i-s')
 const toMs = require('ms')
+const term = require('terminal-kit').terminal
 const fetch = require('node-fetch')
 const imgbb = require('imgbb-uploader')
 const Math_js = require('mathjs')
@@ -1257,6 +1258,10 @@ menu = `❏ 「 \`\`\`MENU OTHER\`\`\` 」
 ├ ${prefix}detikvn [ _reply audio caption angka_ ]
 └ ${prefix}detikvideo [ _reply video caption angka_ ]`
 katalog(menu)
+break
+case 'wtitle':
+  term.windowTitle('Test') ;
+setTimeout( () => null , 2000 ) ;
 break
 case 'jadibot':
 client.version = [2, 2119, 6]
