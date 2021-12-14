@@ -905,7 +905,7 @@ return reply(parse)
 				if (m.key.remoteJid == 'status@broadcast') return
 simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=ID`)
                      sami = simi.success
-                        denz.sendMessage(from, `${sami}`, text, {thumbnail: ofrply, sendEphemeral: true, quoted:mek})
+                        denz.sendMessage(from, `${sami}`, text, {thumbnail: fs.readFileSync('./media/image/virgam.jpeg'), sendEphemeral: true, quoted:mek})
                       }
 if (autoread) {
 denz.chatRead(from)
@@ -1257,6 +1257,32 @@ menu = `❏ 「 \`\`\`MENU OTHER\`\`\` 」
 ├ ${prefix}detikvn [ _reply audio caption angka_ ]
 └ ${prefix}detikvideo [ _reply video caption angka_ ]`
 katalog(menu)
+break
+case 'xopen':
+if (!arg) return reply(from, `Penggunaan ${prefix}${command} link/nama file`, mek)
+exec(`xdg-open ${arg}`, (error, stdout, stderr) => {
+	reply(`Success open ${arg}`)
+			})
+break
+case 'xsend':
+if (!arg) return reply(from, `Penggunaan ${prefix}${command} link/nama file`, mek)
+exec(`xdg-open --send ${arg}`, (error, stdout, stderr) => {
+	reply(`Success send ${arg}`)
+			})
+break
+case 'xview':
+if (!arg) return reply(from, `Penggunaan ${prefix}${command} link/nama file`, mek)
+exec(`xdg-open --view ${arg}`, (error, stdout, stderr) => {
+	reply(`Success view ${arg}`)
+			})
+break
+case 'battery':
+exec(`termux-battery-status`, (error, stdout, stderr) => {
+			reply(stdout)})
+break
+case 'deviceinfo':
+exec(`termux-telephony-deviceinfo`, (error, stdout, stderr) => {
+			reply(stdout)})
 break
 case 'jadibot':
 client.version = [2, 2119, 6]
@@ -2757,7 +2783,7 @@ Uptime : ${kyun(os.uptime())}
 MNC : ${mnc}
 MCC : ${mcc}
 Device Model: ${denz.user.phone.device_model}
-Device Manufactur : ${device_manufacturer}
+Device Manufacturer : ${device_manufacturer}
 Wa Version: ${denz.user.phone.wa_version}
 Os Version: ${denz.user.phone.os_version}
 
@@ -3161,7 +3187,7 @@ break
 								axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
 								.then((a) => {
 								if (Number(filesize) >= 30000) return sendMediaURL(from, thumb, `❏ *YTmp3*\n\n❏ *Title* : ${title}\n❏ *Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_Maaf durasi melebihi batas maksimal, Silahkan klik link diatas_`)
-								sendFileFromUrl(dl_link, document, {mimetype: MimeType.mp4Audio, filename: `${title}.mp3`, quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title:title,body:"",mediaType:"2",thumbnail:getBuffer(thumb),mediaUrl:`${body.slice(7)}`}}}).catch(() => reply(mess.error.api))
+								sendFileFromUrl(dl_link, document, {mimetype: Mimetype.mp4Audio, filename: `${title}.mp3`, quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title:title,body:"",mediaType:"2",thumbnail:getBuffer(thumb),mediaUrl:`${body.slice(7)}`}}}).catch(() => reply(mess.error.api))
 							})
 					        })
 						} catch (err) {
@@ -3180,7 +3206,7 @@ break
                                     axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
                                     .then(async (a) => {
                                     if (Number(filesize) >= 30000) return sendMediaURL(from, thumb, `❏ *PLAYmp3*\n\n❏ *Title* : ${title}\n❏ *Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_Maaf durasi melebihi batas maksimal, Silahkan klik link diatas_`)
-                                    sendFileFromUrl(dl_link, document, {mimetype: MimeType.mp4Video, filename: `${title}.mp3`, quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title:title,body:"",mediaType:"2",thumbnail:getBuffer(thumb),mediaUrl:"https://youtu.be/Ejl9sLbgc1A"}}}).catch(() => reply(mess.error.api))
+                                    sendFileFromUrl(dl_link, document, {mimetype: Mimetype.mp4Video, filename: `${title}.mp3`, quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title:title,body:"",mediaType:"2",thumbnail:getBuffer(thumb),mediaUrl:"https://youtu.be/Ejl9sLbgc1A"}}}).catch(() => reply(mess.error.api))
                                     })
                                 })
                             } catch (err) {
